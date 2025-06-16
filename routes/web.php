@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,8 @@ Route::get('dashboard', function () {
 
 
 Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta');
+
+//uploadimage
+Route::get('/upload', [ImageController::class, 'create']);
+Route::post('/upload', [ImageController::class, 'store'])->name('image.upload');
+Route::delete('/image/{id}', [ImageController::class, 'destroy'])->name('image.delete');
